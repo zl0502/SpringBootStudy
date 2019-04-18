@@ -25,5 +25,8 @@ public interface UserService {
 
     void updateUser(User user);
 
+    int signUp(UserDTO userDTO);
+
     void nickname(User user);
+
 }

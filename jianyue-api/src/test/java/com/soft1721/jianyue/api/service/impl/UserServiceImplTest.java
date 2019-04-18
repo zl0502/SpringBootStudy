@@ -7,7 +7,6 @@ import com.soft1721.jianyue.api.util.StatusConst;
 import com.soft1721.jianyue.api.util.StringUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -40,5 +39,21 @@ public class UserServiceImplTest {
         int status = userService.signIn(loginUser);
         assertEquals(StatusConst.SUCCESS, status);
     }
+    @Test
+    public void signUp() {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setMobile("18315158147");
+        userDTO.setPassword("111");
+        int n = userService.signUp(userDTO);
+        assertEquals(0, n);
+    }
 
+
+    @Test
+    public void nickname() {
+        User user=userService.getUserById(1);
+        user.setNickname("明天");
+        userService.updateUser(user);
+
+    }
 }
